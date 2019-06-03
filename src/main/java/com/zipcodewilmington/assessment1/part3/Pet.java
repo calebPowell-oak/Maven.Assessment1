@@ -11,6 +11,7 @@ public abstract class Pet implements Animal {
 
         private Integer age;
         private String name;
+        private PetOwner owner;
 
     public Pet() {
         this.age = 0;
@@ -62,12 +63,14 @@ public abstract class Pet implements Animal {
      * ensure this instance of `Pet` is added to the owner's composite `pets` list
      */
     public void setOwner(PetOwner newPetOwner) {
+        owner = newPetOwner;
+//        newPetOwner.addPet(this);
     }
 
     /**
      * @return PetOwner object whose composite `pets` collection contains this Pet instance
      */
     public PetOwner getOwner() {
-        return null;
+        return owner;
     }
 }
