@@ -73,7 +73,11 @@ public class PetOwner {
      * @return the age of the Pet object whose age field is the highest amongst all Pets in this class
      */
     public Integer getOldestPetAge() {
-        return null;
+        Integer oldest = ownedPets.get(0).getAge();
+        for(Pet x : ownedPets){
+            if(x.getAge() > oldest) oldest = x.getAge();
+        }
+        return oldest;
     }
 
 
@@ -81,7 +85,11 @@ public class PetOwner {
      * @return the sum of ages of Pet objects stored in this class divided by the number of Pet object
      */
     public Float getAveragePetAge() {
-        return null;
+        Integer s = 0;
+        for(Pet x : ownedPets){
+            s += x.getAge();
+        }
+        return (float)s / ownedPets.size();
     }
 
     /**
