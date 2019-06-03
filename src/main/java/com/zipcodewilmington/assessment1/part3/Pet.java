@@ -9,9 +9,9 @@ public abstract class Pet implements Animal {
      * by default, pet has age of 0; name of "";
      */
 
-    String name;
-    Integer age;
-    PetOwner owner;
+    private String name;
+    private Integer age;
+    private PetOwner owner;
 
     public Pet() {
         this.age = 0;
