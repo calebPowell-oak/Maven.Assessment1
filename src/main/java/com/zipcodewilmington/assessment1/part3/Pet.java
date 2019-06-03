@@ -8,13 +8,21 @@ public abstract class Pet implements Animal {
      * nullary constructor
      * by default, pet has age of 0; name of "";
      */
+
+        private Integer age;
+        private String name;
+
     public Pet() {
+        this.age = 0;
+        this.name = "";
     }
 
     /**
      * @param name name of this pet
      */
     public Pet(String name) {
+        this.age = 0;
+        this.name = name;
     }
 
 
@@ -22,6 +30,8 @@ public abstract class Pet implements Animal {
      * @param age age of this pet
      */
     public Pet(int age) {
+        this.age = age;
+        this.name = "";
     }
 
     /**
@@ -29,20 +39,22 @@ public abstract class Pet implements Animal {
      * @param age age of this pet
      */
     public Pet(String name, int age) {
+        this.age = age;
+        this.name = name;
     }
 
     /**
      * @return name of this pet
      */
     public String getName() {
-        return null;
+        return name;
     }
 
     /**
      * @return age of this pet
      */
     public Integer getAge() {
-        return null;
+        return age;
     }
 
     /**
