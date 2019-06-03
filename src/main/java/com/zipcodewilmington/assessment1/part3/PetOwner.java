@@ -16,14 +16,24 @@ public class PetOwner {
 
     public PetOwner(String name, Pet... pets) {
         this.name = name;
-        this.pets = new ArrayList<>(Arrays.asList(pets));
+        if(pets != null) {
+            this.pets = new ArrayList<>(Arrays.asList(pets));
+            for(Pet x : pets){
+                x.setOwner(this);
+            }
+        }
     }
 
     /**
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
-        this.pets.add(pet);
+        if(pets == null){
+            pets = new ArrayList<>();
+            pets.add(pet);
+        } else {
+            pets.add(pet);
+        }
     }
 
     /**
