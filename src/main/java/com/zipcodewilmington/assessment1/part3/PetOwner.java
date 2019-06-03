@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -8,22 +11,32 @@ public class PetOwner {
      * @param name name of the owner of the Pet
      * @param pets array of Pet object
      */
-        
-    public PetOwner(String name, Pet... pets) {
+        private String name;
+        private ArrayList<Pet> pets;
 
+    public PetOwner(String name, Pet... pets) {
+        this.name = name;
+        this.pets = new ArrayList<>(Arrays.asList(pets));
     }
 
     /**
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
+        this.pets.add(pet);
     }
 
     /**
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-
+        for(int i = 0; i < this.pets.size();){
+            if(this.pets.get(i) == pet){
+                this.pets.remove(i);
+            } else {
+                i++;
+            }
+        }
     }
 
     /**
