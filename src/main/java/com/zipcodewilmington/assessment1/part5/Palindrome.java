@@ -2,8 +2,17 @@ package com.zipcodewilmington.assessment1.part5;
 
 public class Palindrome {
 
-    public Integer countPalindromes(String input){
-        return null;
+    public static Integer countPalindromes(String input){
+        Integer count = 0;
+        String result = "";
+        for(int i = 1; i <= input.length(); i++){
+            for(int j = 0; j <= input.length() - i; j++){
+                if(isPalindromic(input.substring(j,j+i))){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     public static boolean isPalindromic(String str) {
@@ -12,6 +21,7 @@ public class Palindrome {
         for(char e : arr){
             x.append(e);
         }
-        return str.equals(x.reverse().toString());
+        x.reverse();
+        return str.equals(x.toString());
     }
 }
