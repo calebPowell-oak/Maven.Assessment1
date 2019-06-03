@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -10,7 +13,15 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-        return null;
+        ArrayList<Integer> ans = new ArrayList<>(Arrays.asList(ints));
+        for(int i = 0; i < ans.size();){
+            if (ans.get(i) % 2 == 0){
+                ans.remove(i);
+            } else {
+                i++;
+            }
+        }
+        return ans.toArray(new Integer[0]);
     }
 
     /**
@@ -19,7 +30,15 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with odds removed
      */
     public Integer[] deleteOdds(Integer[] ints) {
-        return null;
+        ArrayList<Integer> ans = new ArrayList<>(Arrays.asList(ints));
+        for(int i = 0; i < ans.size();){
+            if (ans.get(i) % 2 == 1){
+                ans.remove(i);
+            } else {
+                i++;
+            }
+        }
+        return ans.toArray(new Integer[0]);
     }
 
     /**
@@ -28,7 +47,15 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by 3 removed
      */
     public Integer[] deleteMultiplesOf3(Integer[] ints) {
-        return null;
+        ArrayList<Integer> ans = new ArrayList<>(Arrays.asList(ints));
+        for(int i = 0; i < ans.size();){
+            if (ans.get(i) % 3 == 0){
+                ans.remove(i);
+            } else {
+                i++;
+            }
+        }
+        return ans.toArray(new Integer[0]);
     }
 
     /**
@@ -38,6 +65,14 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by `multiple` removed
      */
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
-        return null;
+        ArrayList<Integer> ans = new ArrayList<>(Arrays.asList(ints));
+        for(int i = 0; i < ans.size();){
+            if (ans.get(i) % multiple == 0){
+                ans.remove(i);
+            } else {
+                i++;
+            }
+        }
+        return ans.toArray(new Integer[0]);
     }
 }
