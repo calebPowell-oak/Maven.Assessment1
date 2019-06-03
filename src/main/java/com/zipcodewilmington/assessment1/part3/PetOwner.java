@@ -16,24 +16,27 @@ public class PetOwner {
 
     public PetOwner(String name, Pet... pets) {
         this.name = name;
+        this.pets = new ArrayList<>();
         if(pets != null) {
-            this.pets = new ArrayList<>(Arrays.asList(pets));
-            for(Pet x : pets){
-                x.setOwner(this);
+            for (int i = 0; i < pets.length; i++) {
+                this.pets.add(pets[i]);
+                this.pets.get(i).setOwner(this);
             }
         }
     }
+
+//    if(pets != null) {
+//        this.pets = new ArrayList<>(Arrays.asList(pets));
+//        for(Pet x : pets){
+//            x.setOwner(this);
+//        }
+//    }
 
     /**
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
-        if(pets == null){
-            pets = new ArrayList<>();
-            pets.add(pet);
-        } else {
-            pets.add(pet);
-        }
+        pets.add(pet);
     }
 
     /**
@@ -54,14 +57,18 @@ public class PetOwner {
      * @return true if I own this pet
      */
     public Boolean isOwnerOf(Pet pet) {
-        return null;
+        return this == pet.getOwner();
     }
 
     /**
      * @return the age of the Pet object whose age field is the lowest amongst all Pets in this class
      */
     public Integer getYoungetPetAge() {
-        return null;
+        Integer youngest = pets.get(0).getAge();
+        for(Pet x : pets){
+            if(x.getAge() < youngest) youngest = x.getAge();
+        }
+        return youngest;
     }
 
 
@@ -71,7 +78,11 @@ public class PetOwner {
      * @return the age of the Pet object whose age field is the highest amongst all Pets in this class
      */
     public Integer getOldestPetAge() {
-        return null;
+        Integer oldest = pets.get(0).getAge();
+        for(Pet x : pets){
+            if(x.getAge() > oldest) oldest = x.getAge();
+        }
+        return oldest;
     }
 
 
@@ -79,27 +90,35 @@ public class PetOwner {
      * @return the sum of ages of Pet objects stored in this class divided by the number of Pet object
      */
     public Float getAveragePetAge() {
-        return null;
+        Integer s = pets.get(0).getAge();
+        for(int i = 1; i < pets.size(); i++){
+            s += pets.get(i).getAge();
+        }
+        return (float)(s / pets.size());
     }
 
     /**
      * @return the number of Pet objects stored in this class
      */
     public Integer getNumberOfPets() {
-        return null;
+        Integer count = pets.size();
+        for(Pet x : pets){
+            if(x == null) count--;
+        }
+        return count;
     }
 
     /**
      * @return the name property of the Pet
      */
     public String getName() {
-        return null;
+        return this.name;
     }
 
     /**
      * @return array representation of animals owned by this PetOwner
      */
     public Pet[] getPets() {
-        return null;
+        return this.pets.toArray(new Pet[0]);
     }
 }
